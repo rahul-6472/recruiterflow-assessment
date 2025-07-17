@@ -16,10 +16,6 @@ function App() {
   const [totalPages, setTotalPages] = useState(0);
   const pageWindowSize = 12;
 
-  const windowStart =
-    Math.floor((currentPage - 1) / pageWindowSize) * pageWindowSize + 1;
-  const windowEnd = Math.min(windowStart + pageWindowSize - 1, totalPages);
-
   const fetchProducts = async () => {
     try {
       const response = await fetch(
@@ -87,53 +83,6 @@ function App() {
         </button>
       </div>
       <CardList productsList={productsList} />
-      {/* {productsList?.products?.length > 0 && (
-        <div className="flex justify-center items-center space-x-2 m-8">
-          <button
-            className={`px-3 py-1 rounded border border-gray-300 text-sm font-medium hover:bg-gray-100 transition ${
-              currentPage > 1
-                ? "cursor-pointer"
-                : "opacity-50 cursor-not-allowed"
-            }`}
-            onClick={() =>
-              currentPage > 1 && selectPageHandler(currentPage - 1)
-            }
-          >
-            Prev
-          </button>
-
-          {Array.from({ length: windowEnd - windowStart + 1 }, (_, i) => {
-            const page = i + windowStart;
-            return (
-              <button
-                key={page}
-                className={`px-3 py-1 rounded border border-gray-300 text-sm font-medium transition ${
-                  currentPage === page
-                    ? "bg-blue-600 text-white"
-                    : "hover:bg-gray-100 text-gray-700"
-                }`}
-                onClick={() => selectPageHandler(page)}
-              >
-                {page}
-              </button>
-            );
-          })}
-
-          <button
-            className={`px-3 py-1 rounded border border-gray-300 text-sm font-medium hover:bg-gray-100 transition ${
-              currentPage < totalPages
-                ? "cursor-pointer"
-                : "opacity-50 cursor-not-allowed"
-            }`}
-            onClick={() =>
-              currentPage < totalPages && selectPageHandler(currentPage + 1)
-            }
-          >
-            Next
-          </button>
-        </div>
-      )} */}
-
       {productsList?.products?.length > 0 && (
         <Pagination
           currentPage={currentPage}
