@@ -38,10 +38,9 @@ Ensure you have **Node.js** and **npm** (or **yarn**) installed.
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/product-cards-app.git
-cd product-cards-app
+git clone https://github.com/rahul-6472/recruiterflow-assessment.git
+cd recruiterflow-assessment
 
 # Install dependencies
 npm install
-# or
-yarn install
+
